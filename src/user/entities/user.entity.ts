@@ -1,9 +1,14 @@
+import { ChatEntity } from 'src/chat/entities/chat.entity';
+import { MessageEntity } from 'src/message/entities/message.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 
 @Entity('[babylon-floor]-users')
@@ -20,9 +25,15 @@ export class UserEntity {
   @Column()
   password: string;
 
+  @Column({ default: "https://png.pngtree.com/element_our/png_detail/20181206/users-vector-icon-png_260862.jpg" })
+  avatarUrl: string;
+
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @OneToMany(() => MessageEntity, (message) => message.user)
+  message: MessageEntity[];
 }

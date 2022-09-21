@@ -31,7 +31,9 @@ export class AuthService {
 
   async login(dto: LoginUserDto) {
     const { password, ...userData } = dto;
+    const  { id }  = await this.userService.findByCond(dto)
     return {
+      id,
       userData,
       ...userData,
       token: this.generateJwtToken(userData),

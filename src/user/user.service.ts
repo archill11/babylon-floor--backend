@@ -13,9 +13,9 @@ export class UserService {
   ) {}
 
   findAll() {
-    return `This action returns all users`;
+    return this.repository.find();
   }
-
+  
   create(dto: CreateUserDto) {
     return this.repository.save(dto);
   }
