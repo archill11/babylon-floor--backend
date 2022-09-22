@@ -8,9 +8,9 @@ import { config } from 'dotenv';
 import { AuthModule } from './auth/auth.module';
 import { ChatModule } from './chat/chat.module';
 import { MessageModule } from './message/message.module';
-import { AppGateway } from './app.gateway';
 import { ChatEntity } from './chat/entities/chat.entity';
 import { MessageEntity } from './message/entities/message.entity';
+import { MessageGateway } from './message/message.gateway';
 
 config();
 @Module({
@@ -38,6 +38,6 @@ config();
     MessageModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AppGateway],
+  providers: [AppService, MessageGateway],
 })
 export class AppModule {}

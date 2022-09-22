@@ -28,16 +28,25 @@ export class ChatService {
   }
 
   async findAll(userId: any) {
-    // const students = await this.repository.find( {relations: ["users"]} )
-    // console.log('yyy',students[0].users);
+    const chatsList = await this.repository.find({ relations: ['users'] });
+    const dialogs = chatsList.filter((item) => {
+      const usersChats = item.users.filter((itm) => itm.id === userId);
+      return item.users.includes(usersChats[0], 0);
+    });
 
-    const dialogs = await this.repository
-      .createQueryBuilder('chat')
-      .leftJoinAndSelect('chat.users', 'user')
-      .where('user.id != :id', { id: userId })
-      .getMany();
-      
-    return dialogs;
+    return { dialogs, userId };
+
+  
+    // const dialogs = await this.repository
+    //   .createQueryBuilder('chat')
+    //   .leftJoinAndSelect('chat.users', 'user')
+    //   // .where('user.id = :id', { id: userId })
+    //   .groupBy('chat.chat')
+    //   .having('user.id = :id', { id: userId })
+    //   .getMany();
+    //   console.log(dialogs);
+
+    // return dialogs;
 
     // const data = await this.repository.find();
     // console.log(data);
