@@ -12,10 +12,11 @@ export class MessageService {
     private repository: Repository<MessageEntity>,
   ) {}
 
-  create(dto: CreateMessageDto, userId: number) {
+  create(dto: CreateMessageDto) {
 
     return this.repository.save({
-      user: { id: Number(userId) },
+      // user: { id: Number(userId) },
+      user: { id: Number(dto.userId) },
       chat: { id: Number(dto.chatId) },
       name: dto.name,
       avatarUrl: dto.avatarUrl,
@@ -32,9 +33,12 @@ export class MessageService {
 
     return dialogs;
 
-    // return this.repository.findBy({ chatId: 1 });
   }
 
+
+
+
+  
   findOne(id: number) {
     return `This action returns a #${id} message`;
   }

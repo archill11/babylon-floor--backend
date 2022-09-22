@@ -38,6 +38,6 @@ config();
     MessageModule,
   ],
   controllers: [AppController],
-  providers: [AppService, MessageGateway],
+  providers: [AppService],
 })
 export class AppModule {}

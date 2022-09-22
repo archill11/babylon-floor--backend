@@ -9,11 +9,11 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 export class ChatController {
   constructor(private readonly chatService: ChatService) {}
 
-  @UseGuards(JwtAuthGuard)
-  @Post()
-  create(@User() userId: number, @Body() dto: CreateChatDto) {
-    return this.chatService.create(dto, +userId);
-  }
+  // @UseGuards(JwtAuthGuard)
+  // @Post()
+  // create( @Body() dto: CreateChatDto) {
+  //   return this.chatService.create(dto);
+  // }
   
   @UseGuards(JwtAuthGuard)
   @Get()
@@ -21,6 +21,11 @@ export class ChatController {
     return this.chatService.findAll(+userId);
   }
 
+
+
+
+
+  
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.chatService.findOne(+id);

@@ -9,16 +9,21 @@ import { User } from '../../decorators/user.decorator';
 export class MessageController {
   constructor(private readonly messageService: MessageService) {}
 
-  @UseGuards(JwtAuthGuard)
-  @Post()
-  create(@User() userId: number, @Body() createMessageDto: CreateMessageDto) {
-    return this.messageService.create(createMessageDto, userId);
-  }
+  // @UseGuards(JwtAuthGuard)
+  // @Post()
+  // create(@User() userId: number, @Body() createMessageDto: CreateMessageDto) {
+  //   return this.messageService.create(createMessageDto, userId);
+  // }
 
   @Get(':id')
   findAll(@Param('id') id: string) {
     return this.messageService.findAll(+id);
   }
+
+
+
+
+  
 
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -21,9 +21,9 @@ export class ChatService {
     private readonly entityManager: EntityManager,
   ) {}
 
-  create(dto: CreateChatDto, userId: number) {
+  create(dto: CreateChatDto) {
     return this.repository.save({
-      users: [{ id: userId }, { id: +dto.receiverId }],
+      users: [{ id: +dto.userId }, { id: +dto.receiverId }],
     });
   }
 
