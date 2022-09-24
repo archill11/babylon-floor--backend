@@ -10,7 +10,11 @@ import { ChatModule } from './chat/chat.module';
 import { MessageModule } from './message/message.module';
 import { ChatEntity } from './chat/entities/chat.entity';
 import { MessageEntity } from './message/entities/message.entity';
-import { MessageGateway } from './message/message.gateway';
+import { FileModule } from 'src/file/file.module';
+import * as path from 'path'
+import { ServeStaticModule } from '@nestjs/serve-static';
+
+
 
 config();
 @Module({
@@ -32,10 +36,12 @@ config();
       retryAttempts: 5,
       synchronize: true,
     }),
+    ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     UserModule,
     AuthModule,
     ChatModule,
     MessageModule,
+    FileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
