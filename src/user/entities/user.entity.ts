@@ -25,7 +25,7 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column({ default: "image/users-vector-icon-png_260862.jpg" })
+  @Column({ default: "image/b3104bbb-2d31-48e1-abcc-7a68f746d2c8.jpg" })
   avatarUrl: string;
 
   @CreateDateColumn({ type: 'timestamp' })
