@@ -10,7 +10,7 @@ import {
 import { CreateMessageDto } from './dto/create-message.dto';
 import { MessageService } from './message.service';
 
-const port = process.env.SOCKET_PORT_CHAT || 8001
+const port = process.env.PORT || 8001
 
 @WebSocketGateway(Number(port), { cors: '*:*' })
 export class MessageGateway {
