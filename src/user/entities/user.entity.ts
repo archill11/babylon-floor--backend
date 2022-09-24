@@ -21,11 +21,11 @@ export class UserEntity {
 
   @Column({ unique: true })
   email: string;
-
+  image/232b39f9-2144-4831-b0b9-cd623949cd94.jpg
   @Column()
   password: string;
 
-  @Column({ default: "image/b3104bbb-2d31-48e1-abcc-7a68f746d2c8.jpg" })
+  @Column({ default: "image/232b39f9-2144-4831-b0b9-cd623949cd94.jpg" })
   avatarUrl: string;
 
   @CreateDateColumn({ type: 'timestamp' })
