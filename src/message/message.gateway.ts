@@ -10,9 +10,9 @@ import {
 import { CreateMessageDto } from './dto/create-message.dto';
 import { MessageService } from './message.service';
 
-const port = process.env.PORT || 8001
+// const port = process.env.PORT || 8001
 
-@WebSocketGateway(80, { cors: '*:*' })
+@WebSocketGateway( { cors: '*:*' })
 export class MessageGateway {
   constructor(private readonly messageService: MessageService) {}
   

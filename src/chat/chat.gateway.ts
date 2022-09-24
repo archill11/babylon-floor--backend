@@ -12,9 +12,9 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { ChatService } from './chat.service';
 import { CreateChatDto } from './dto/create-chat.dto';
 
-const port = process.env.PORT || 8002
+// const port = process.env.PORT || 8002
 
-@WebSocketGateway(403, { cors: '*:*' })
+@WebSocketGateway( { cors: '*:*' })
 export class ChatGateway {
   constructor(private readonly chatService: ChatService) {}
 
