@@ -14,7 +14,7 @@ import { CreateChatDto } from './dto/create-chat.dto';
 
 const port = process.env.PORT || 8002
 
-@WebSocketGateway(Number(port), { cors: '*:*' })
+@WebSocketGateway(Number(port) + 1 , { cors: '*:*' })
 export class ChatGateway {
   constructor(private readonly chatService: ChatService) {}
 

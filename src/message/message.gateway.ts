@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 
 const port = process.env.PORT || 8001
 
-@WebSocketGateway(Number(port), { cors: '*:*' })
+@WebSocketGateway(Number(port) + 2, { cors: '*:*' })
 export class MessageGateway {
   constructor(private readonly messageService: MessageService) {}
   
