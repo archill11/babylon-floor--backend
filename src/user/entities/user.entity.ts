@@ -21,7 +21,7 @@ export class UserEntity {
 
   @Column({ unique: true })
   email: string;
-  image/232b39f9-2144-4831-b0b9-cd623949cd94.jpg
+  
   @Column()
   password: string;
 
