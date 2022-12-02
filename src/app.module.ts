@@ -15,7 +15,6 @@ import * as path from 'path'
 import { ServeStaticModule } from '@nestjs/serve-static';
 
 
-
 config();
 @Module({
   imports: [
